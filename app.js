@@ -92,7 +92,7 @@ await person.save();
 
 Person.find(function (err, persons) {
 persons.forEach(person => console.log(person.name));
-  mongoose.connection.close();
+
 });
 
 // const fruits = await Fruit.find();
