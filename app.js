@@ -69,11 +69,16 @@ Fruit.find(function (err, fruits) {
   if (err) {
     console.log(err);
   } else {
+
 // Let's list each name of the element in collection
 fruits.forEach(fruit => console.log(fruit.name));
     // console.log(fruits);
   }
-});
+
+// Let's close the database connection
+  mongoose.connection.close();
+
+  });
 
 
 const Person = mongoose.model('Person', personSchema);
@@ -84,6 +89,11 @@ const person = new Person({
 });
 
 await person.save();
+
+Person.find(function (err, persons) {
+persons.forEach(person => console.log(person.name));
+  mongoose.connection.close();
+});
 
 // const fruits = await Fruit.find();
 
